@@ -17,5 +17,13 @@ jobs:
           port: ${{ secrets.SERVER_PORT }}
           script: |
             cd ${{ secrets.PROJECT_PATH }}
+            echo "Current directory: $(pwd)"
+            echo "Setting git safe directory..."
             sudo git config --global --add safe.directory ${{ secrets.PROJECT_PATH }}
-            sudo git pull
+            echo "Checking git status..."
+            sudo git status
+            echo "Fetching latest changes..."
+            sudo git fetch origin main
+            echo "Resetting to origin/main to avoid merge conflicts..."
+            sudo git reset --hard origin/main
+            echo "Deployment completed successfully"
