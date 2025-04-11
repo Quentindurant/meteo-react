@@ -26,4 +26,4 @@ jobs:
             sudo git fetch origin main
             echo "Resetting to origin/main to avoid merge conflicts..."
             sudo git reset --hard origin/main
-            echo "Deployment completed successfully"
+            echo "Deployment completed successfully."
